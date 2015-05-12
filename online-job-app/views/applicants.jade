@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    .container
+        h1 Applicants
+
+        table#applications.table.table-striped
+            thead
+                th Name 
+                th Bio 
+                th Skills 
+                th Years of Exp
+                th Why?
+                th Delete Applicant 
+
+            for applicant in applicants
+                tr
+                    td 
+                        a(href="/applicant/#{applicant._id}") #{applicant.name}
+                    td= applicant.bio 
+                    td= applicant.skills 
+                    td= applicant.years 
+                    td= applicant.why
+                    td 
+                        a(href="/delete/#{applicant._id}") Delete
